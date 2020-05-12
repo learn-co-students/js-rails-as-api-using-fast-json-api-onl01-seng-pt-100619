@@ -1,6 +1,6 @@
 class SightingsController < ApplicationController
   def show
-    sighting = Sighting.find_by(params[:id])
+    sighting = Sighting.find(params[:id])
     options = {}
     options[:include] = [:bird, :location]
     render json: SightingSerializer.new(sighting, options).serializable_hash
@@ -12,4 +12,4 @@ class SightingsController < ApplicationController
     options[:include] = [:bird, :location]
     render json: SightingSerializer.new(sightings, options).serializable_hash
   end
-end
+endd
